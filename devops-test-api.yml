@@ -26,15 +26,18 @@ spec:
           initialDelaySeconds: 10
           periodSeconds: 10
         env:
-          - name: redis
-          - name: 6379
-            value:
+          - name: REDIS_HOST
+            value: redis
+          - name: REDIS_PORT
+            value: 6379
           - name: REDIS_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: redisecret
-          - name: mongodb
-          - name: 27017
+          - name: MONGO_HOST
+            value: mongodb
+          - name: MONGO_PORT
+            value: 27017
           - name: MONGO_USERNAME
             valueFrom:
               secretKeyRef:
