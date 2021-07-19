@@ -16,6 +16,13 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: bitnami/mongodb
+        image: mongo
         ports:
         - containerPort: 27017
+        volumeMounts:
+            - name: storage
+              mountPath: /data/db
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: mongo-pvc
